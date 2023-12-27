@@ -1,0 +1,12 @@
+{
+    "configurations": [
+
+        {
+            "name": "Python: main.py (Integrated Terminal)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/demiurge.py",
+            "console": "integratedTerminal",
+        }
+    ]
+}
