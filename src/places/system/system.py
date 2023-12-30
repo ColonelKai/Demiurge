@@ -7,20 +7,29 @@ class System:
     def __init__(self, name: str):
         self.name = name;
         self.planets = []
-        
+        self.neighbors = []
 
+
+
+## SAVE LOAD 
 def sl_get_serialised(input: System):
     output = {};
     
+    output["neighbors"] = input.neighbors;
+
+    planets = {} 
     for p in input.planets:
-        output.update(p.planet_name, planet.sl_get_serialised(p));
+        planets.update(p.planet_name, planet.sl_get_serialised(p));
+        
+    output["planets"] = planets;
         
     return output;
 
 def sl_get_deserialised(input: Dict[int, planet.Planet], name: str):
     output = System(name);
     
-    for i, v in input.items():
+    planets = input["planets"]
+    for i, v in planets.items():
         output.planets.append(planet.sl_get_deserialised(v, i));
     
     return output;

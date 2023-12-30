@@ -14,19 +14,19 @@ class Resources:
         # create a dictionary with 0 resources for each.
         self.__resource_dict: Dict[ResourceType, int] = {}
         for i in ResourceType:
-            self.__resource_dict.update(i.name, 0);
+            self.__resource_dict[i] = 0;
     
     @classmethod
     def get_resource_count(self, resource_type: ResourceType):
-        return self.__resource_dict.get(resource_type);
+        return self.__resource_dict[resource_type];
     
     @classmethod
     def set_resource_counter(self, resource_type: ResourceType, amount: int):
-        self.__resource_dict.update(resource_type, amount);
+        self.__resource_dict[resource_type] = amount;
     
     @classmethod
     def change_resource_count(self, resource_type: ResourceType, amount: int):
-        self.__resource_dict.update(resource_type, self.__resource_dict.get(resource_type) + amount);
+        self.__resource_dict[resource_type] = self.__resource_dict.get(resource_type) + amount;
         
 
 # SL stands for save and load
