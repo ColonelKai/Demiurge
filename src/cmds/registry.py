@@ -16,7 +16,7 @@ def register(bot: commands.Bot):
     
     command_list = [
         ping.status_command,
-        gm_master.gm_group
+        gm_master.GmGroup()
     ]
     
     for i in command_list:

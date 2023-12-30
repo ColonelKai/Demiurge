@@ -5,5 +5,6 @@ def __load():
         return json.load(file);
 
 def load_readonlystate():
-    
+    from src.state import readonlystate;
+
     return  readonlystate.ReadOnlyTypes(__load()["read_only"])

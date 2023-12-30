@@ -3,6 +3,13 @@ from enum import Enum
 class ResourceType(Enum):
     POPULATION = 1
     
+    # Unextracted Raw Materials
+    UNEXTRACTED_ICE = 11
+    UNEXTRACTED_IRON = 12
+    UNEXTRACTED_TITANIUM = 13
+    UNEXTRACTED_URANIUM = 14
+    UNEXTRACTED_HELIUM = 15
+    
     # Extracted Raw Materials
     ICE = 101
     IRON = 102

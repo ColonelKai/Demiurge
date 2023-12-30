@@ -1,3 +1,4 @@
+from typing import Dict
 from src.places.planet.resource_types import ResourceType
 
 
@@ -11,9 +12,9 @@ class Resources:
     @classmethod
     def __init__(self):
         # create a dictionary with 0 resources for each.
-        self.__resource_dict = {}
+        self.__resource_dict: Dict[ResourceType, int] = {}
         for i in ResourceType:
-            self.__resource_dict.update(i, 0);
+            self.__resource_dict.update(i.name, 0);
     
     @classmethod
     def get_resource_count(self, resource_type: ResourceType):
@@ -28,8 +29,14 @@ class Resources:
         self.__resource_dict.update(resource_type, self.__resource_dict.get(resource_type) + amount);
         
 
-
+# SL stands for save and load
 def sl_get_serialised(input: Resources) -> dict:
-    dict = {}
+    return input.__resource_dict;
+
+def sl_get_deserialised(input: Dict[str, int]) -> Resource:
+    output = Resource();
     
+    for i, v in input.items():
+        output.change_resource_count(ResourceType["i"], v);
     
+    return output;

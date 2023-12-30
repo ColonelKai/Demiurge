@@ -20,6 +20,14 @@ async def on_ready():
     await bot.tree.sync(guild=discord.Object(os.getenv('GUILD')));
     print("Ready to Go.");
     
-    print(general_state_data.load_readonlystate());
     
+    from src.places.planet import resource_types;
+    from src.places.planet import resources;
+    
+    print(resources.Resources());
+    
+    for i in resource_types.ResourceType:
+        print(i)
+    
+print(os.getenv('DISCORD_TOKEN'))
 bot.run(os.getenv('DISCORD_TOKEN'))
